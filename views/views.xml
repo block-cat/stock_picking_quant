@@ -1,60 +1,14 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="stock_picking_quant.list">
-      <field name="name">stock_picking_quant list</field>
-      <field name="model">stock_picking_quant.stock_picking_quant</field>
+    <record id="stock_picking_quant_inherit" model="ir.ui.view">
+      <field name="name">stock.picking.quant</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
+        <xpath expr="//field[@name='move_line_ids']//field[@name='product_uom_qty']" position="after">
+          <field name="location_qty"/>
+        </xpath>
       </field>
     </record>
-    -->
-
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="stock_picking_quant.action_window">
-      <field name="name">stock_picking_quant window</field>
-      <field name="res_model">stock_picking_quant.stock_picking_quant</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
-
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="stock_picking_quant.action_server">
-      <field name="name">stock_picking_quant server</field>
-      <field name="model_id" ref="model_stock_picking_quant_stock_picking_quant"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
-
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="stock_picking_quant" id="stock_picking_quant.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="stock_picking_quant.menu_1" parent="stock_picking_quant.menu_root"/>
-    <menuitem name="Menu 2" id="stock_picking_quant.menu_2" parent="stock_picking_quant.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="stock_picking_quant.menu_1_list" parent="stock_picking_quant.menu_1"
-              action="stock_picking_quant.action_window"/>
-    <menuitem name="Server to list" id="stock_picking_quant" parent="stock_picking_quant.menu_2"
-              action="stock_picking_quant.action_server"/>
-    -->
   </data>
 </odoo>
