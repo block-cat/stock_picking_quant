@@ -6,6 +6,7 @@ from odoo import api, fields, models, _
 import logging
 
 _logger = logging.getLogger(__name__)
+<<<<<<< HEAD
 
 
 class stock_move(models.Model):
@@ -34,6 +35,8 @@ class stock_move(models.Model):
 
             quants = self.env["stock.quant"].search(domain)
             self.location_qty = sum(quant.quantity for quant in quants)
+=======
+>>>>>>> 881ea349c55bf15acda37a36f8fde2a60479c0f0
 
 
 class stock_move_line(models.Model):
